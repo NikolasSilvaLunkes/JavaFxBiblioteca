@@ -15,13 +15,10 @@
           <Menu mnemonicParsing="false" text="Emprestimo">
             <items>
                   <MenuItem fx:id="menuTeste" mnemonicParsing="false" onAction="#handlerRealizarEmprestimo" text="Realizar Emprestimo" />
-                  <MenuItem mnemonicParsing="false" text="Novo" />
-              <MenuItem fx:id="menuItemCadastrarPaciente" mnemonicParsing="false" text="Cadastrar" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Inquilino">
             <items>
-              <MenuItem fx:id="menuItemRelatorioMedico" mnemonicParsing="false" onAction="#handlerListaInquilino" text="Lista" />
               <MenuItem fx:id="menuItemCadastrarMedico" mnemonicParsing="false" onAction="#handlerTelaAdicionarInquilino" text="Cadastrar" />
             </items>
           </Menu>
@@ -33,16 +30,6 @@
                   <MenuItem fx:id="menuItemEditora" mnemonicParsing="false" onAction="#handlerTelaEditora" text="Adicionar Editora" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="Serviço">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Ajuda">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Ajuda" />
-              </items>
-            </Menu>
         </menus>
       </MenuBar>
       <AnchorPane fx:id="anchorPaneFundo" layoutY="27.0" prefHeight="374.0" prefWidth="600.0" />
