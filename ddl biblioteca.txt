@@ -1,0 +1,66 @@
+CREATE DATABASE bibliotecaJava;
+
+CREATE TABLE inquilino (
+    idinquilino SERIAL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    cpf VARCHAR(255),
+    rg VARCHAR(255),
+    telefone VARCHAR(255)
+);
+
+CREATE TABLE emprestimo (
+    idemprestimo  SERIAL PRIMARY KEY,
+    dataemprestimo DATE,
+    datadevolucao DATE,
+    idinquilino INT NOT NULL,
+    CONSTRAINT idinquilino 
+      FOREIGN KEY(idinquilino ) 
+      REFERENCES inquilino (idinquilino )
+);
+
+
+CREATE TABLE editora (
+    ideditora SERIAL PRIMARY KEY,
+    nome VARCHAr(255)
+);
+
+
+CREATE TABLE autor (
+    idautor SERIAL PRIMARY KEY,
+    nome VARCHAR(255)
+);
+
+CREATE TABLE titulo(
+    idtitulo SERIAL PRIMARY KEY,
+    nometitulo VARCHAR(255),
+    idautor INT NOT NULL,
+    ideditora INT NOT NULL,
+    CONSTRAINT fk_idautor
+      FOREIGN KEY(idautor) 
+      REFERENCES autor(idautor),
+    CONSTRAINT fk_ideditora
+      FOREIGN KEY(ideditora) 
+      REFERENCES editora(ideditora)
+);
+
+CREATE TABLE exemplar (
+    idexemplar SERIAL PRIMARY KEY,
+    edicao VARCHAR(255),
+    localizacao VARCHAR(255),
+    idtitulo INT NOT NULL,
+    CONSTRAINT fk_idtitulo
+      FOREIGN KEY(idtitulo) 
+      REFERENCES titulo(idtitulo)
+);
+
+CREATE TABLE emprestimo_exemplar (
+    idemprestimo_exemplar SERIAL PRIMARY KEY,
+    idemprestimo INT,
+    idexemplar INT,
+    CONSTRAINT fk_idemprestimo
+      FOREIGN KEY(idemprestimo) 
+      REFERENCES emprestimo(idemprestimo),
+    CONSTRAINT fk_idexemplar
+      FOREIGN KEY(idexemplar) 
+      REFERENCES exemplar(idexemplar)
+);
